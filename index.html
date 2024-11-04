@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
+    <title>SSP</title>
+</head>
+
+<body class="bg-gray-100">
+    <section>
+        <header class="bg-white flex items-center justify-between pl-4">
+            <!-- Logo and Name -->
+            <div class="flex items-center space-x-4">
+                <img src="./assets/logo.jfif" alt="Sri Sharada Peetham Logo" class="h-[10dvh]">
+                <div class="text-left text-xs">
+                    <p class="text-orange/50 leading-tight italic">
+                        Sri Sri Jagadguru<br>
+                        Shankaracharya Mahasamsthanam,
+                    </p>
+                    <p class="font-bold text-orange leading-tight italic">
+                        Dakshinayamnaya Sri Sharada Peetham,<br> Sringeri
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Background Image -->
+            <div class="ml-auto opacity-90 hidden sm:block">
+                <img src="./assets/vst.png" alt="Vidyashankar Temple" class="h-[155px] w-[40dvw]">
+            </div>
+        </header>
+        
+        <!-- have to make this sticky upon scrolling a certain height in the browser -->
+        <!-- Navigation Links -->
+         <div class="bg-white">
+            <nav x-data="{open : false}" class="px-4 shadow-sm shadow-slate-500 py-2 sm:py-0">
+
+              <!-- Hamburger Icons -->
+               <div class="flex justify-between sm:hidden" x-cloak>
+                  <button @click="open = !open">
+                    <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray" class="size-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <svg x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray" class="size-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>                                        
+                  </button>
+                  <input type="search" name="search" id="search" placeholder="Search" class="ml-2 h-[50%] w-[30%] bg-gray-500 border border-gray-600 outline-none rounded-md">
+               </div>
+              
+               <!-- Mobile Navigation -->
+                <div x-show="open" class="block sm:hidden" x-cloak>
+                  <a href="#events" class="uppercase bg-yellow text-white py-1 rounded w-[25dvw] my-2 text-center shadow-sm hover:shadow-slate-800 block">Events</a>
+                  <a href="#resources" class="uppercase bg-orange text-white py-1 rounded w-[25dvw] my-2 text-center shadow-sm hover:shadow-slate-800 block">Resources</a>
+                  <a href="#pilgrim-info" class="uppercase bg-purple text-white py-1 rounded w-[25dvw] my-2 text-center shadow-sm hover:shadow-slate-800 block">Pilgrim Info</a>
+                  <a href="#online-services" class="uppercase bg-blue text-white py-1 rounded w-[25dvw] my-2 text-center shadow-sm hover:shadow-slate-800 block">Online Services</a>
+                  <a href="#about-us" class="uppercase bg-sky text-white py-1 rounded w-[25dvw] my-2 text-center shadow-sm hover:shadow-slate-800 block">About Us</a>
+                  <a href="#contact" class="uppercase bg-olive text-white py-1 rounded w-[25dvw] my-2 text-center shadow-sm hover:shadow-slate-800 block">Contact</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                 <div class="hidden sm:block">
+                  <div class="absolute px-[7dvw] w-[100%] top-28 flex flex-row flex-wrap items-center justify-start gap-3 mb-2 z-10 text-[12px] bg-transparent shadow-lg p-2">
+                    <a href="#events" class="uppercase bg-yellow text-white py-1 rounded w-[20%] lg:w-[10%] text-center shadow-sm hover:shadow-slate-800">Events</a>
+                    <a href="#resources" class="uppercase bg-orange text-white py-1 rounded w-[10%] text-center shadow-sm hover:shadow-slate-800">Resources</a>
+                    <a href="#pilgrim-info" class="uppercase bg-purple text-white py-1 rounded w-[10%] text-center shadow-sm hover:shadow-slate-800">Pilgrim Info</a>
+                    <a href="#online-services" class="uppercase bg-blue text-white py-1 rounded w-[10%] text-center shadow-sm hover:shadow-slate-800">Online Services</a>
+                    <a href="#about-us" class="uppercase bg-sky text-white py-1 rounded w-[10%] text-center shadow-sm hover:shadow-slate-800">About Us</a>
+                    <a href="#contact" class="uppercase bg-olive text-white py-1 rounded w-[10%] text-center shadow-sm hover:shadow-slate-800">Contact</a>
+                    <input type="search" name="search" id="search" placeholder="&#984;" class="lg:ml-2 w-[5dvw] bg-gray-500 border border-gray-600 outline-none rounded-md pl-3">
+                </div>
+                 </div>
+                
+            </nav>
+         </div>
+        
+
+        <!-- gotta add event handlers here so that when i click on any of nav link, it would load its page in two sections: sidebar and actual contents. Additionally i can make the sidebar hidden and visible on a user click -->
+    </section>
+   
+    
+    <!-- <main class="p-4">
+        <h2 class="text-xl">Home</h2>
+        <p>This is a simple website using Tailwind CSS and Alpine.js!</p>
+        <p>PS: Just started learning Alpine.</p>
+        <br>
+        <p> gotta add event handlers here so that when i click on any of nav link, it would load its page in two sections: sidebar and actual contents. Additionally i can make the sidebar hidden and visible on a user click
+        </p>
+    </main> -->
+
+    <main>
+      <!-- Sidebar and Main Content Section -->
+      <div class="flex">
+        <!-- Sidebar (Toggle based on selected nav link) -->
+        <aside class="w-[25dvw] px-[7dvw] py-[5dvh] h-[100dvh] bg-orange text-sm text-white/70">
+          <ul>
+            <!-- if anything is active, then we have to make its color white, text italic and show arrow and increase the width of hr to 70-80% -->
+            <li class="py-2 w-[80%]"><a href="#stotras" >Stotras</a>
+              <hr> <!--tried border bottom too but wasnt desirable ui-->
+            </li>
+            <li class="py-2 w-[80%]"><a href="#benedictory">Benedictory Courses & Pravachanas</a>
+              <hr>
+            </li>
+            <li class="py-2 w-[80%]"><a href="#bhajans">Bhajans</a>
+              <hr>
+            </li>
+            <li class="py-2 w-[80%]"><a href="#panchangam">Panchangam</a>
+              <hr>
+            </li>
+            <li class="py-2 w-[80%]"><a href="#downloads">Downloads</a>
+              <hr>
+            </li>
+            
+          </ul>
+          
+        </aside>
+
+        <!-- Main Content Area -->
+<!-- Main Content -->
+<div id="resources" x-data="stotraNavigation">
+  <!-- Stotras Section -->
+  <div id="stotras" class="py-[5dvh] h-[100dvh] w-[75dvw] overflow-y-auto">
+    <h3 class="text-center py-4">Stotras</h3>
+    <div class="flex justify-center">
+      <ol type="A" class="list-[upper-alpha]">
+        <!-- Ganesha Section -->
+        <li class="pt-6 font-bold hover:border hover:border-b-slate-600"><a href="#ganesh" @click="navigate('ganesh')">Ganesha</a></li>
+        <ol type="1" class="list-decimal ml-5">
+          <li class="hover:border hover:border-b-slate-600"><a href="#ganesh_pancharatna" @click="navigate('ganesh', 'pancharatna')">Pancharatna</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#ganesh_pratah" @click="navigate('ganesh', 'pratah_smaranam')">Pratah_smaranam</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#ganesh_dhyanam" @click="navigate('ganesh', 'dhyanam')">Dhyanam</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#ganesh_geetam" @click="navigate('ganesh', 'geetam')">Geetam</a></li>
+        </ol>
+
+        <!-- Sharda Section -->
+        <li class="pt-6 font-bold hover:border hover:border-b-slate-600"><a href="#sharda" @click="navigate('sharda')">Sharda</a></li>
+        <ol type="1" class="list-decimal ml-5">
+          <li class="hover:border hover:border-b-slate-600"><a href="#sharda_pancharatna" @click="navigate('sharda', 'pancharatna')">Pancharatna</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#sharda_pratah" @click="navigate('sharda', 'pratah_smaranam')">Pratah_smaranam</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#sharda_dhyanam" @click="navigate('sharda', 'dhyanam')">Dhyanam</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#sharda_geetam" @click="navigate('sharda', 'geetam')">Geetam</a></li>
+        </ol>
+
+        <!-- Shankara Section -->
+        <li class="pt-6 font-bold hover:border hover:border-b-slate-600"><a href="#shankara" @click="navigate('shankara')">Shankara</a></li>
+        <ol type="1" class="list-decimal ml-5">
+          <li class="hover:border hover:border-b-slate-600"><a href="#shankara_pancharatna" @click="navigate('shankara', 'pancharatna')">Pancharatna</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#shankara_pratah" @click="navigate('shankara', 'pratah_smaranam')">Pratah_smaranam</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#shankara_dhyanam" @click="navigate('shankara', 'dhyanam')">Dhyanam</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#shankara_geetam" @click="navigate('shankara', 'geetam')">Geetam</a></li>
+        </ol>
+
+        <!-- Aanjaneya Section -->
+        <li class="pt-6 font-bold hover:border hover:border-b-slate-600"><a href="#aanjaneya" @click="navigate('aanjaneya')">Aanjaneya</a></li>
+        <ol type="1" class="list-decimal ml-5">
+          <li class="hover:border hover:border-b-slate-600"><a href="#aanjaneya_pancharatna" @click="navigate('aanjaneya', 'pancharatna')">Pancharatna</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#aanjaneya_pratah" @click="navigate('aanjaneya', 'pratah_smaranam')">Pratah_smaranam</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#aanjaneya_dhyanam" @click="navigate('aanjaneya', 'dhyanam')">Dhyanam</a></li>
+          <li class="hover:border hover:border-b-slate-600"><a href="#aanjaneya_geetam" @click="navigate('aanjaneya', 'geetam')">Geetam</a></li>
+        </ol>
+      </ol>
+    </div>
+  </div>
+</div>
+
+    </main>
+
+<!-- Footer Section -->
+<footer class="bg-bottleGreen text-white text-sm pt-8">
+    <!-- Three Button Section - Centered with margins -->
+    <div class="flex justify-center flex-wrap gap-0 sm:gap-4 my-8 ">
+      <button class="uppercase bg-white text-bottleGreen font-bold px-4 py-2.5 rounded-md w-[85%] lg:w-[24%] md:w-[40%] sm:w-[70%] shadow-sm hover:shadow-white/30 mb-2">Temple Timings</button>
+      <button class="uppercase bg-green text-white font-bold px-4 py-2.5 rounded-md w-[85%] lg:w-[24%] md:w-[40%] sm:w-[70%] shadow-sm hover:shadow-white/30 mb-2">Volunteer</button>
+      <button class="uppercase bg-sky text-white font-bold px-3.5 py-2.5 rounded-md w-[85%] lg:w-[24%] md:w-[40%] sm:w-[70%] shadow-sm hover:shadow-white/30 mb-2">Donate</button>
+    </div>
+  
+    <!-- Footer Grid Layout for Main Sections -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm mb-8 ml-8 p-12 px-[15%] md:px-16 lg:px-24 w-[90%]">
+        <div class="flex gap-14">
+<!-- Branches Section -->
+<div>
+    <p class="font-semibold uppercase mb-4">Branches</p>
+    <ul class="space-y-2 text-sky">
+      <li>Andhra Pradesh</li>
+      <li>Karnataka</li>
+      <li>Kerala</li>
+      <li>Maharashtra</li>
+      <li>New Delhi</li>
+      <li>Tamil Nadu</li>
+      <li>Telangana</li>
+      <li>Uttar Pradesh</li>
+      <li>Uttarakhand</li>
+    </ul>
+  </div>
+
+    <!-- Activities Section -->
+    <div>
+        <p class="font-semibold uppercase mb-4">Activities</p>
+        <ul class="space-y-2 text-sky">
+          <li>Educational Activities</li>
+          <li>Social Activities</li>
+        </ul>
+      </div>
+        </div>
+  
+      <!-- Contact Information Section -->
+      <div class="flex flex-row gap-14 lg:gap-6">
+        <div> <!--info --> 
+            <p class="font-semibold uppercase mb-4">Contact Information</p>
+        <p class="text-sky">The Administrator,<br>Sringeri Math and its Properties,<br>Sringeri, Chickmangalur District,<br>Karnataka- 577139</p>
+        <p class="mt-4 text-sky">
+          +91-8265-252525<br>
+          +91-8265-262626<br>
+          +91-8265-272727
+        </p>
+        <p class="mt-2 text-sky">info.trap@sringeri.net</p>
+        </div>
+        
+        <div>
+            <!-- Social Links & Other Buttons -->
+            <div class="flex flex-wrap sm:flex-nowrap space-x-3 mt-4">
+                <span class="bg-sky text-bottleGreen rounded-sm border-blue hover:text-slate-950 shadow-sm hover:shadow-white/30 cursor-pointer"><img src="./assets/icons8-facebook.svg" alt=""></span>
+                <span class="bg-sky text-bottleGreen rounded-sm border-blue hover:text-slate-950 shadow-sm hover:shadow-white/30 cursor-pointer"><img src="./assets/icons8-instagram.svg" alt=""></span>
+                <span class="bg-sky text-bottleGreen rounded-sm border-blue hover:text-slate-950 shadow-sm hover:shadow-white/30 cursor-pointer"><img src="./assets/icons8-twitter (1).svg" alt=""></span>
+                <span class="bg-sky text-bottleGreen rounded-sm border-blue hover:text-slate-950 shadow-sm hover:shadow-white/30 cursor-pointer"><img src="./assets/icons8-youtube.svg" alt=""></span>
+          </div>
+          <div class="flex flex-col space-y-2 mt-4">
+            <button class="bg-sky text-bottleGreen py-2 px-4 rounded-lg shadow-sm hover:shadow-white/30 uppercase inline-flex "><img src="./assets/icons8-calendar-28.png" class="hidden sm:block" alt=""><p class="text-[10px] pt-1.5">Find us on maps</p></button>
+            <button class="bg-sky text-bottleGreen py-2 px-4 rounded-lg shadow-sm hover:shadow-white/30 uppercase inline-flex "><img src="./assets/icons8-calendar-28.png" class="hidden sm:block" alt=""><p class="text-[10px] pt-1.5">event calendar</p></button>
+            </div>
+        </div>
+      </div>
+
+
+      <!-- Affiliated Institutions Section -->
+      <div>
+        <p class="font-semibold uppercase mb-4">Affiliated Institutions</p>
+        <ul class="space-y-2 text-sky">
+          <li>Institution 1</li>
+          <li>Institution 2</li>
+          <li>Institution 3</li>
+          <li>Institution 4</li>
+        </ul>
+      </div>
+  
+      <!-- External Links Section -->
+      <div>
+        <p class="font-semibold uppercase mb-4">External Links</p>
+        <ul class="space-y-2 text-sky">
+          <li>Saraswati Sabha</li>
+          <li>Adwait Sharda</li>
+          <li>Vijaya Yatra</li>
+          <li>Online Book Store</li>
+        </ul>
+        
+      </div>
+    </div>
+  
+    <!-- Footer Bottom -->
+    <div class="text-center mt-8 text-xs ">
+      <p class="bg-darkGreen w-[100%] p-4">© 2024. All Rights Reserved by Dakshinamnaya Sri Sharada Peetham, Sringeri</p>
+    </div>
+  </footer>
+
+  <style>
+    [x-cloak] {display: none !important; }
+  </style>
+  <!-- <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('stotraNavigation', () => ({
+        navigate(category, stotra = '') {
+          // Construct URL path
+          const path = `/resources/stotras/${category}${stotra ? `/${stotra}` : ''}`;
+          window.history.pushState({}, '', path);
+  
+          // Scroll to the section
+          const targetId = stotra ? `${category}_${stotra}` : category;
+          document.getElementById(targetId)?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }));
+    });
+  </script> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</body>
+</html>
