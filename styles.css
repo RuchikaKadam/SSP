@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.active-link {
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.tab-content > main {
+    display: none;
+}
+
+.tab-content > main[x-show="activeTab === 'events'"],
+.tab-content > main[x-show="activeTab === 'resources'"],
+.tab-content > main[x-show="activeTab === 'pilgrim-info'"]{
+    display: block;
+}

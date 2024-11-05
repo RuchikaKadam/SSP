@@ -554,8 +554,8 @@ video {
   display: none;
 }
 
-.visible {
-  visibility: visible;
+.fixed {
+  position: fixed;
 }
 
 .absolute {
@@ -570,8 +570,52 @@ video {
   top: 7rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
+.top-\[-\] {
+  top: -;
+}
+
+.top-\[-10\] {
+  top: -10;
+}
+
+.top-\[-20\] {
+  top: -20;
+}
+
+.top-\[-40\] {
+  top: -40;
+}
+
+.top-\[\] {
+  top: ;
+}
+
+.top-\[1DVH\] {
+  top: 1DVH;
+}
+
+.top-\[1\] {
+  top: 1;
+}
+
+.top-\[1dvh\] {
+  top: 1dvh;
+}
+
+.top-\[1\%\] {
+  top: 1%;
+}
+
 .z-10 {
   z-index: 10;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .my-2 {
@@ -638,10 +682,6 @@ video {
 
 .grid {
   display: grid;
-}
-
-.contents {
-  display: contents;
 }
 
 .hidden {
@@ -825,6 +865,10 @@ video {
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
 
+.border-transparent {
+  border-color: transparent;
+}
+
 .bg-blue {
   --tw-bg-opacity: 1;
   background-color: rgb(43 104 125 / var(--tw-bg-opacity));
@@ -843,6 +887,11 @@ video {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .bg-gray-500 {
@@ -916,6 +965,11 @@ video {
   padding-right: 15%;
 }
 
+.px-\[6dvw\] {
+  padding-left: 6dvw;
+  padding-right: 6dvw;
+}
+
 .px-\[7dvw\] {
   padding-left: 7dvw;
   padding-right: 7dvw;
@@ -985,11 +1039,6 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 .text-xs {
@@ -1069,6 +1118,22 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.active-link {
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.tab-content > main {
+  display: none;
+}
+
+.tab-content > main[x-show="activeTab === 'events'"],
+.tab-content > main[x-show="activeTab === 'resources'"],
+.tab-content > main[x-show="activeTab === 'pilgrim-info'"]{
+  display: block;
 }
 
 .hover\:border:hover {
